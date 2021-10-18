@@ -1,6 +1,14 @@
 # Web Server Config
 server:
   port: ${SPRING_PORT:8761}
+#  ssl:
+#    enabled: true
+#    trust-store-password:
+#    trust-store:
+#    client-auth:
+#    key-store-password:
+#    key-password:
+#    key-store:
 
 # Spring App Config
 spring:
