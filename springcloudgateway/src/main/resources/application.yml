@@ -26,6 +26,17 @@ spring:
 #                name: EurekaGlobalLogFilter # it doesnt work
       default-filters:
         - LogFilter=GlobalLogFilter # it works
+        - PreFilter=TestPreFilterFirst
+      routes:
+        - id: dynamicRouteForProducer
+          # /api/v1/customer/info # uri doesnt consider after port. If u want to convert path u should use rewrite path
+          uri: http://localhost:8038/thisDoesntConsiderFromSpringCloudGateway
+          predicates:
+            - Path=/dynamicRouteProducer/api/v1/customer/info
+          filters:
+            - LogFilter=dynamicRouteForProducerLogFilter
+            - StripPrefix=1
+
 
 eureka:
   client:
