@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 env:
-  DOCKER_HUB_USERNAME: test
+  DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_UNAME }}
   REGISTRYNAME: ${{ vars.REGISTRYNAME }}
   
 jobs:
