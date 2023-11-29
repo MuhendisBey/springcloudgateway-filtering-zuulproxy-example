@@ -7,8 +7,8 @@ on:
     branches: [ "main" ]
 
 env:
-  DOCKERHUBUSERNAME: ${{ vars.DOCKER_HUB_UNAME }}
-  REGISTRYNAME: ${{ vars.DOCKER_HUB_UNAME }}
+  DOCKERHUBUSERNAME: TESTUNAME
+  REGISTRYNAME: TESTREGISTRYNAME
   
 jobs:
   build:
@@ -29,8 +29,7 @@ jobs:
       id: build-all-docker-images
       run: |
        echo "Building Docker images ==> "
-       DOCKERHUBUSERNAME=TESTUSER \
-       REGISTRYNAME=TESTREGISTRY docker-compose build 
+       docker-compose build 
        
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
