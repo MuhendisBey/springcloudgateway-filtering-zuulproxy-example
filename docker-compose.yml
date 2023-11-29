@@ -7,7 +7,7 @@ services:
       context: ./discovery-service
       args:
         JAR_FILE_NAME: discovery-service-0.0.1-SNAPSHOT.jar
-    image: ${DOCKER_HUB_USERNAME}/${REGISTRYNAME}/discovery-service
+    image: ${DOCKERHUBUSERNAME}/${REGISTRYNAME}/discovery-service
     healthcheck:
       test: "wget --spider -q http://localhost:8761/actuator/health || exit 1"
       interval: 2s
