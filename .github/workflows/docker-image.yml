@@ -7,8 +7,8 @@ on:
     branches: [ "main" ]
 
 env:
-  DOCKERHUBUSERNAME: TESTUNAME
-  REGISTRYNAME: TESTREGISTRYNAME
+  DOCKERHUBUSERNAME: ${{ vars.DOCKER_HUB_UNAME }}
+  REGISTRYNAME: ${{ vars.REGISTRYNAME }}
   
 jobs:
   build:
