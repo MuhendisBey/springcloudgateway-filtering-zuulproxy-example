@@ -1,7 +1,7 @@
 name: Docker Image CI
-# env:
-#   DOCKERHUBUSERNAME: ${{ vars.DOCKER_HUB_UNAME }}
-#   REGISTRYNAME: ${{ vars.DOCKER_HUB_UNAME }}
+env:
+  DOCKERHUBUSERNAME: ${{ vars.DOCKER_HUB_UNAME }}
+  REGISTRYNAME: ${{ vars.DOCKER_HUB_UNAME }}
   
 on:
   push:
@@ -26,9 +26,6 @@ jobs:
         
     - name: Build Docker All Images
       id: build-all-docker-images
-      env:
-        DOCKERHUBUSERNAME: ${{ vars.DOCKER_HUB_UNAME }}
-        REGISTRYNAME: ${{ vars.DOCKER_HUB_UNAME }}
       run: |
        echo "Building Docker images ==> "
        docker-compose build
