@@ -29,7 +29,8 @@ jobs:
       id: build-all-docker-images
       run: |
        echo "Building Docker images ==> "
-       docker-compose build
+       docker-compose build -e DOCKERHUBUSERNAME=${{ vars.DOCKER_HUB_UNAME }} \
+       REGISTRYNAME=${{ vars.DOCKER_HUB_UNAME }}
        
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
