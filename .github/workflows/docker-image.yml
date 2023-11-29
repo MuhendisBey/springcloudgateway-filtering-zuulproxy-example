@@ -18,7 +18,7 @@ jobs:
     - name: Docker Hub Login
       run: |
         echo "Login into the docker hub"
-          docker login -u ${{secrets.DOCKER_HUB_USERNAME }} ${{ secrets.DOCKER_HUB_PASSWD }}
+          docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} ${{ secrets.DOCKER_HUB_PASSWD }}
         
     - name: Build Docker All Images
       id: build-all-docker-images
