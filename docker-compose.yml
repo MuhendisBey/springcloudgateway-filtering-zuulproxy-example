@@ -3,7 +3,7 @@ version: '3.8'
 services:
   discovery-service:
     build:
-      dockerfile: ../Dockerfile
+      dockerfile: ../Dockerfile.build
       context: ./discovery-service
       args:
         JAR_FILE_NAME: discovery-service-0.0.1-SNAPSHOT.jar
@@ -20,7 +20,7 @@ services:
     environment:
       - SPRING_EUREKA_SERVER=discovery-service
     build:
-      dockerfile: ../Dockerfile
+      dockerfile: ../Dockerfile.build
       context: ./springcloudgateway
       args:
         JAR_FILE_NAME: springcloudgateway-0.0.1-SNAPSHOT.jar
@@ -41,7 +41,7 @@ services:
     environment:
       - SPRING_EUREKA_SERVER=discovery-service
     build:
-      dockerfile: ../Dockerfile
+      dockerfile: ../Dockerfile.build
       context: ./producer
       args:
         JAR_FILE_NAME: producer-0.0.1-SNAPSHOT.jar
@@ -61,7 +61,7 @@ services:
     environment:
       - SPRING_EUREKA_SERVER=discovery-service
     build:
-      dockerfile: ../Dockerfile
+      dockerfile: ../Dockerfile.build
       context: ./consumer
       args:
         JAR_FILE_NAME: consumer-0.0.1-SNAPSHOT.jar
