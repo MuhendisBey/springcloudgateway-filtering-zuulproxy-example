@@ -14,11 +14,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Docker Hub Login
+      run: |
+        echo "Login into the docker hub"
+          docker login -u ${{secrets.DOCKER_HUB_USERNAME }} ${{ secrets.DOCKER_HUB_PASSWD }}
+        
     - name: Build Docker All Images
       id: build-all-docker-images
       run: |
        echo "Building Docker images ==> "
        docker-compose build
+       
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
@@ -41,4 +48,8 @@ jobs:
     - name: List all built docker images
       run: |
         docker images | grep kageja
+
+    - name: Push all of docker images
+      run: |
+        docker-compose push
               
