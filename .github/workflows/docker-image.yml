@@ -52,7 +52,7 @@ jobs:
 
     - name: List all built docker images
       run: |
-        docker images | grep kageja
+        docker images | grep $DOCKER_HUB_USERNAME
 
     - name: Push all of docker images
       run: |
