@@ -1,5 +1,8 @@
 name: Docker Image CI
-
+env:
+  DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+  REGISTRYNAME: ${{ vars.REGISTRYNAME }}
+  
 on:
   push:
     branches: [ "main" ]
@@ -7,9 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
