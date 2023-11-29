@@ -1,7 +1,4 @@
 name: Docker Image CI
-env:
-  DOCKERHUBUSERNAME: ${{ vars.DOCKER_HUB_UNAME }}
-  REGISTRYNAME: ${{ vars.DOCKER_HUB_UNAME }}
   
 on:
   push:
@@ -9,6 +6,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  DOCKERHUBUSERNAME: ${{ vars.DOCKER_HUB_UNAME }}
+  REGISTRYNAME: ${{ vars.DOCKER_HUB_UNAME }}
+  
 jobs:
   build:
     runs-on: ubuntu-latest
