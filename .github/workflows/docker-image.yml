@@ -1,6 +1,6 @@
 name: Docker Image CI
 env:
-  DOCKER_HUB_USERNAME: ${{ vars.DOCKER_HUB_UNAME }}
+  DOCKERHUBUSERNAME: ${{ vars.DOCKER_HUB_UNAME }}
   REGISTRYNAME: ${{ vars.REGISTRYNAME }}
   
 on:
