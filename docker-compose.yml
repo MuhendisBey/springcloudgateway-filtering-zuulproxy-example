@@ -7,7 +7,7 @@ services:
       context: ./discovery-service
       args:
         JAR_FILE_NAME: discovery-service-0.0.1-SNAPSHOT.jar
-    image: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ vars.REGISTRYNAME }}/discovery-service
+    image: ${DOCKER_HUB_USERNAME}/${REGISTRYNAME}/discovery-service
     healthcheck:
       test: "wget --spider -q http://localhost:8761/actuator/health || exit 1"
       interval: 2s
@@ -24,7 +24,7 @@ services:
       context: ./springcloudgateway
       args:
         JAR_FILE_NAME: springcloudgateway-0.0.1-SNAPSHOT.jar
-    image: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ vars.REGISTRYNAME }}/springcloudgateway
+    image: ${DOCKER_HUB_USERNAME}/${REGISTRYNAME}/springcloudgateway
     healthcheck:
       test: "wget --spider -q http://localhost:8080/actuator/health || exit 1"
       interval: 2s
@@ -45,7 +45,7 @@ services:
       context: ./producer
       args:
         JAR_FILE_NAME: producer-0.0.1-SNAPSHOT.jar
-    image: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ vars.REGISTRYNAME }}/producer
+    image: ${DOCKER_HUB_USERNAME}/${REGISTRYNAME}/producer
     healthcheck:
       test: "wget --spider -q http://localhost:8038/actuator/health || exit 1"
       interval: 2s
@@ -65,7 +65,7 @@ services:
       context: ./consumer
       args:
         JAR_FILE_NAME: consumer-0.0.1-SNAPSHOT.jar
-    image: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ vars.REGISTRYNAME }}/consumer
+    image: ${DOCKER_HUB_USERNAME}/${REGISTRYNAME}/consumer
     healthcheck:
       test: "wget --spider -q http://localhost:8039/actuator/health || exit 1"
       interval: 2s
