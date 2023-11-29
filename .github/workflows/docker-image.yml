@@ -20,14 +20,15 @@ jobs:
       env:
         UNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
         PASWWD: ${{ secrets.DOCKER_HUB_PASSWD }}
-        DOCKERHUBUSERNAME: ${{ vars.DOCKER_HUB_UNAME }}
-        REGISTRYNAME: ${{ vars.DOCKER_HUB_UNAME }}
       run: |
         echo "Login into the docker hub"
           docker login -u "$UNAME" "$PASWWD" 
         
     - name: Build Docker All Images
       id: build-all-docker-images
+      env:
+        DOCKERHUBUSERNAME: ${{ vars.DOCKER_HUB_UNAME }}
+        REGISTRYNAME: ${{ vars.DOCKER_HUB_UNAME }}
       run: |
        echo "Building Docker images ==> "
        docker-compose build
