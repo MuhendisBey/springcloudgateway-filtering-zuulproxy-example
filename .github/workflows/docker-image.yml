@@ -15,14 +15,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - shell: bash 
-      name: Docker Hub Login
+    - name: Docker Hub Login
       env:
         UNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
         PASWWD: ${{ secrets.DOCKER_HUB_PASSWD }}
       run: |
         echo "Login into the docker hub"
-          docker login -u $UNAME $PASWWD 
+          docker login -u "$UNAME" "$PASWWD" 
         
     - name: Build Docker All Images
       id: build-all-docker-images
