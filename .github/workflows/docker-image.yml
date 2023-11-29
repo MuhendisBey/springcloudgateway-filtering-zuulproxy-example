@@ -29,7 +29,7 @@ jobs:
         PASWWD: ${{ secrets.DOCKER_HUB_PASSWD }}
       run: |
         echo "Login into the docker hub"
-          docker login -u "$UNAME" "$PASWWD" 
+          docker login -u "$UNAME" -p "$PASWWD" 
 
     - name: Test Point for docker config after login
       run: |
