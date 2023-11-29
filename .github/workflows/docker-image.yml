@@ -18,10 +18,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Test Point for docker config before login
+    - name: Remove docker config.json before login
       run: |
         echo "See below uncencrypted data =>"
-        cat /home/runner/.docker/config.json
+        rm /home/runner/.docker/config.json
         
     - name: Docker Hub Login
       env:
