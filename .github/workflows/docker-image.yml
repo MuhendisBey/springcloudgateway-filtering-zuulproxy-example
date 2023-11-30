@@ -30,7 +30,7 @@ jobs:
         
     - name: Docker Hub Login
       env:
-        UNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+        UNAME: ${{ vars.DOCKER_HUB_UNAME }}
         PASWWD: ${{ secrets.DOCKER_HUB_PASSWD }}
       run: |
         echo "Login into the docker hub"
