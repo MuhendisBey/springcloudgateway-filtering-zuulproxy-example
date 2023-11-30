@@ -23,10 +23,10 @@ jobs:
         echo "See below uncencrypted data =>"
         cat /home/runner/.docker/config.json
         
-    - name: Remove docker config.json before login
-      run: |
-        echo "See below uncencrypted data =>"
-        rm /home/runner/.docker/config.json
+    # - name: Remove docker config.json before login
+    #   run: |
+    #     echo "See below uncencrypted data =>"
+    #     rm /home/runner/.docker/config.json
         
     - name: Docker Hub Login
       env:
